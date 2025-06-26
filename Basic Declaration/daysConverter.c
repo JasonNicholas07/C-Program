@@ -1,15 +1,15 @@
-//Compute rectangle perimeter and area
+//Convert days into years, weeks, and days
 
 #include <stdio.h>
 
 int main () {
-	int days;
+	int days, years, weeks;
 	
-	printf("Number of days: ");
+	printf("Number of days: ");		//read input
 	scanf("%d", &days);
 	
-	int years = days/365;
-	int weeks = (days%365) / 7;
+	years = days/365;
+	weeks = (days%365) / 7;			//modulo operator to find remaining days
 	days = days - (years*365) - (weeks*7);
 	
 	printf("\nYears: %d\n", years);
