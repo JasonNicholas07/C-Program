@@ -1,18 +1,17 @@
-//Structure -- Book structure management (3 books)
+//Structure -- Book structure management
 
 #include <stdio.h>
 
-
-struct Books {
+struct Books {								//book structure
 	char title[50], author[30];
 	double price;
 	
 };
 
-int most_expensive (struct Books b[3]);			//function call
+int most_expensive (struct Books b[3]);			//function declaration
 int least_expensive (struct Books b[3]);
 
-
+//MAIN FUNCTION
 int main () {
 	struct Books book[3];
 	
@@ -32,7 +31,7 @@ int main () {
 	int expensive = most_expensive(book);		//function call
 	int cheap = least_expensive(book);
 	
-	printf("----------------------------------\n");
+	printf("----------------------------------\n");			//output
 	printf("Most expensive book among 3:\n");
 	printf("Book title: %s\n", book[expensive].title);
 	printf("by %s\n", book[expensive].author);
@@ -50,14 +49,14 @@ int most_expensive (struct Books b[3]){
 	int most_expensive = b[0].price;
 	int temp;
 	
-	for (int i = 0; i<3; i++){
-		if (b[i].price > most_expensive){
+	for (int i = 0; i<3; i++){			
+		if (b[i].price > most_expensive){		//find the most expensive based on price
 			most_expensive = b[i].price;
-			temp = i;
+			temp = i;							//save the book index
 		}
 	}
 	
-	return temp;
+	return temp;							//return temp value (book index) --> output in main_function (book[index])
 }
 
 int least_expensive (struct Books b[3]){
@@ -65,7 +64,7 @@ int least_expensive (struct Books b[3]){
 	int temp;
 	
 	for (int i = 0; i<3; i++){
-		if (b[i].price < least_expensive){
+		if (b[i].price < least_expensive){		//find the least expensive based on price
 			least_expensive = b[i].price;
 			temp = i;
 		}
